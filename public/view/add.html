@@ -1,0 +1,265 @@
+<html>
+
+
+    <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      
+        <title>Work Log</title>
+
+        <script>
+
+            function callfun(){
+             var cars = document.getElementById("cars").value;
+             var lname = document.getElementById("lname").value;
+             var date = document.getElementById("date").value;
+             var time = document.getElementById("time").value;
+             var status = document.getElementById("country").value;
+
+        // console.log(typeof(name), lname,typeof(date),typeof(time),typeof(status));
+             var input = {
+                "name" : cars,
+                'lname' : lname,
+                'date' : date,
+                'time' : time ,
+                'status': status
+             }
+             fetch("/adddetail",{
+                 method:"POST",
+                 body : JSON.stringify(input),
+                 headers:{
+                     'Content-Type':'application/json'
+                }
+              })
+            .then(res=>  {
+                   var result = res.text();
+                   result.then(function(text) {
+                     alert(text);
+                     console.log(text);
+                })
+            //    console.log(res)
+            // })
+            //   .then(data   => {
+                  
+            //    var res = data.text();
+         
+        })
+        .catch((error) => {                        
+            console.error('Error:', error);
+        });
+        // console.log(res);
+
+
+          //  })
+        }
+        </script>
+    </head>
+<body onload="datamy(); empdata()">
+
+
+
+    <script>
+        // show customer data
+         function empdata() {
+         
+             fetch("http://localhost:8090/showempdetail")
+         .then((response)=>  {
+          // console.log(response);
+            response.json().then(result   =>  { 
+            //return response.result.body;
+            console.log(result.data);
+            var data = result.data 
+         for (let i=0;i<data.length;i++){   
+       var row = $('<tr><td>' + data[i].employee_id+ '</td><td>'
+              + data[i].password + '</td></tr>');
+                             $("#emp").append(row);
+                             window.onload=empdata;
+         
+         } 
+         });
+         })  
+         }
+         
+         </script>
+ 
+ 
+ <div class="table-responsive">
+     <table id="emp"class="table">
+         <thead>
+ <tr>
+            
+    
+
+ </tr>
+         </thead>
+         <tbody>
+ 
+ 
+         </tbody>
+ </table>
+     </div>
+
+
+
+
+
+
+
+     <!-- <script>
+        // show customer data
+         function dropdown() {
+         
+             fetch("http://localhost:8090/showdetail")
+         .then((response)=>  {
+            response.json().then(result   =>  { 
+            console.log(result.data);
+            var data = result.data 
+         for (let i=0;i<data.length;i++){
+         var row = $('<option>' + data[i].name+ '</option>');
+                             $("#cars").append(row);
+         
+         } 
+         });
+         })  
+         }
+   
+         </script>
+  -->
+ 
+ <!-- <div class="table-responsive"> -->
+     <!-- <table id="drop"class="table" > -->
+         <!-- <thead> -->
+ <!-- <tr> -->
+  <!-- <select id="cars"> -->
+              <!-- <option scope="col" style="background-color: #f7941d; color: black;">Project Name</option>        --> -->
+             <!-- </select>  -->
+ <!-- </tr>  -->
+         <!-- </thead> -->
+         <!-- <tbody> -->
+ 
+ 
+         <!-- </tbody> -->
+ <!-- </table> -->
+     <!-- </div> -->
+<form action="/adddetail" method="">
+
+<table align="center"  border="1" style="background-color: aqua;">
+
+    <tr><th align="center">
+
+        <h1 style="background-color: antiquewhite;"> Work Log</h1>
+</th></tr>
+    <tr><th align="center">
+        Project Name:-<select id="cars">
+            <option scope="col" style="background-color: #f7941d; color: black;">Project Name</option>        -->
+           </select>
+
+        </th></tr>
+
+        <tr><th align="center">
+            Description:-<input type="text" id="lname">
+
+        </th></tr>
+
+        <tr><th>
+
+       Date:-<input type="date"  id="date">
+    
+        </th></tr>
+        <tr><th>
+        Time:-<input type="time" id="time">
+        
+        </th></tr>
+        <tr><th>
+            Status:-<select id="country" name="country">
+                <option value="pending">pending</option>
+                <option value="process">process</option>
+                <option value="Done">Done</option>
+              </select>
+            
+        </th></tr>
+        <tr><th>
+        <input type="button" name="button" value="submit" onclick="callfun()"> 
+
+        </th></tr>
+</table>
+
+
+    </form>
+
+
+
+
+    
+
+    <script>
+       // show customer data
+        function datamy() {
+        
+            fetch("http://localhost:8090/showdetail")
+        .then((response)=>  {
+         // console.log(response);
+           response.json().then(result   =>  { 
+           //return response.result.body;
+           console.log(result.data);
+           var data = result.data 
+        for (let i=0;i<data.length;i++){
+        // console.log(" project name:-"+ data[i].name);
+        // console.log(" customer lname:-"+ data[i].lname);
+        // console.log(" date:-"+ data[i].date);
+        // console.log("time:-"+ data[i].time);
+        // console.log("status:-"+ data[i].status);
+        
+        
+        var row = $('<tr><td>' + data[i].name+ '</td><td>'
+            
+             + data[i].lname + '</td><td>' + data[i].date +
+                 '</td><td>' + data[i].time + '</td><td>' + data[i].status + '</td></tr>');
+                            $("#task").append(row);
+                            // $("#cars").append(row);
+
+        
+        } 
+        });
+        })  
+        }
+        
+        </script>
+
+
+<div class="table-responsive">
+    <table id="task"class="table" >
+        <thead>
+<tr>
+    
+            <th scope="col" style="background-color: #f7941d; color: black;">Project Name</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Description</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Date</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Time</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Status</th>
+</tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+</table>
+    </div>
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+</body>
+</html>

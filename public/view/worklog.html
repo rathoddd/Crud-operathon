@@ -1,0 +1,197 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<script>
+    function datamy() {
+    
+        fetch("http://localhost:8090/showdetail")
+    .then((response)=>  {
+     // console.log(response);
+       response.json().then(result   =>  { 
+       //return response.result.body;
+       console.log(result.data);
+       var data = result.data 
+    for (let i=0;i<data.length;i++){
+    // console.log(" project name:-"+ data[i].name);
+    // console.log(" customer lname:-"+ data[i].lname);
+    // console.log(" date:-"+ data[i].date);
+    // console.log("time:-"+ data[i].time);
+    // console.log("status:-"+ data[i].status);
+    
+    
+    var row = $('<tr><td>' + data[i].name+ '</td><td>'
+         + data[i].lname + '</td><td>' + data[i].date +
+             '</td><td>' + data[i].time + '</td><td>' + data[i].status + '</td></tr>');
+                        $("#task").append(row);
+    
+    
+    } 
+    });
+    })  
+    }
+    
+    </script>
+    
+    </head>
+
+
+    <style>
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.navbar {
+  font-size: 18px;
+  background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 10px;
+}
+
+.main-nav {
+  list-style-type: none;
+  display: none;
+}
+
+.nav-links,
+.logo {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.main-nav li {
+  text-align: center;
+  margin: 15px auto;
+}
+
+.logo {
+  display: inline-block;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.navbar-toggle {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+
+.active {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    height: 70px;
+    align-items: center;
+  }
+
+  .main-nav {
+    display: flex;
+    margin-right: 30px;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .main-nav li {
+    margin: 0;
+  }
+
+  .nav-links {
+    margin-left: 40px;
+  }
+
+  .logo {
+    margin-top: 0;
+  }
+
+  .navbar-toggle {
+    display: none;
+  }
+
+  .logo:hover,
+  .nav-links:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+}
+.logo{ 
+	top:20; 
+	left:0; 
+} 
+
+        </style>
+
+    <body bgcolor="Cyan" onload="datamy()">
+        <nav class="navbar">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </span>
+        
+        <a href="#" class="logo">
+            <img src="./asset/image/log.png " width="130" height="60" style="padding-top: px"></img>
+
+            </a>
+        <ul class="main-nav" id="js-menu">
+            <li>
+                <a href="add.html" class="nav-links">Add Task</a>
+            </li>
+            <li>
+                <a href="update.html" class="nav-links">Update Detail</a>
+            </li>
+            <li>
+                <a href="search.html" class="nav-links">Search Customer Detail</a>
+            </li>
+            <li>
+                <a href="view.html" class="nav-links">View Worklog All Detail</a>
+            </li>
+            <li>
+                <a href="delete.html" class="nav-links">Delate Detail</a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+
+<div class="table-responsive">
+    <table id="task"class="table" >
+        <thead>
+<tr>
+            <th scope="col" style="background-color: #f7941d; color: black;">Project Name</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Customer Name</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Date</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Time</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Status</th>
+
+</tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+</table>
+    </div>
+
+
+
+    </body>
+</html>

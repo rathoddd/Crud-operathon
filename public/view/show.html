@@ -1,0 +1,199 @@
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Work log Form</title>    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script>
+
+       function empdata(){
+       fetch("http://localhost:8090/showempdetail")
+         .then((response)=>{
+            response.json().then(result =>{
+                console.log(result.data)
+                var empdata = result.data                 
+    //             for (let i=0;i<empdata.length;i++){
+    //           var row = $('<tr><td>' + empdata[i].id+ '</td><td>'
+    //      + empdata[i].employee_id + '</td><td>' + empdata[i].name +
+    //          '</td><td>' + empdata[i].age + '</td><td>' + empdata[i].designation +
+    //              '</td><td>' + empdata[i].password + '</td><td>' + empdata[i].dob + '</td></tr>');
+    //                     $("#emp").append(row);
+
+    // }
+            } )
+         })
+       }
+    </script>
+
+
+
+
+
+</head> 
+<body> 
+    <script>
+       
+       function callfun(){
+
+
+        var time = new Date();
+
+        
+          var currentTime = time.getHours() + ':' + time.getMinutes()+ ':' +time.getSeconds();
+             document.getElementById('start_time').value = currentTime; 
+
+        var date = new Date();
+          var currentDate = date.toISOString().slice(0,10);
+             document.getElementById('date').value = currentDate; 
+
+
+             var employee_id = document.getElementById("employee_id").value;
+             var task_id = document.getElementById("task_id").value;
+             var description = document.getElementById("description").value;
+             var project_name = document.getElementById("project_name").value;
+             var customer_name = document.getElementById("customer_name").value;
+          //   var date = document.getElementById("date").value;
+             var time = document.getElementById("time").value;
+           //  var start_time = document.getElementById("start_time").value;
+             var end_time = document.getElementById("end_time").value;
+             var status = document.getElementById("country").value;
+
+        // console.log(typeof(name), lname,typeof(date),typeof(time),typeof(status));
+             var input = {
+                "employee_id" : employee_id,
+                'task_id' : task_id,
+                'description' : description,
+                'project_name' : project_name ,
+                'customer_name' : customer_name ,
+                'date' : date ,
+                'time' : time ,
+                'start_time' : start_time ,
+                'end_time' : end_time ,
+                'status': status
+             }
+             fetch("/addtask",{
+                 method:"POST",
+                 body : JSON.stringify(input),
+                 headers:{
+                     'Content-Type':'application/json'
+                }
+              })
+            .then(res=>  {
+                   var result = res.text();
+                   result.then(function(text) {
+                     alert(text);
+                     console.log(text);
+                })
+            //    console.log(res)
+            // })
+            //   .then(data   => {
+                  
+            //    var res = data.text();
+         
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+        // console.log(res);
+
+
+          //  })
+        }
+
+        
+    </script>
+
+
+<div class="container">
+  <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label" >Employee Id</label>
+      <input type="text" class="form-control" id="employee_id">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label" >Task Id</label>
+      <input type="text" class="form-control" id="task_id">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Description</label>
+        <input type="text" class="form-control" id="description">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Project Name</label>
+        <input type="text" class="form-control" id="project_name">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Customer Name</label>
+        <input type="text" class="form-control" id="customer_name">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Date</label>
+        <input type="date" class="form-control" id="date">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Time</label>
+        <input type="time" class="form-control" id="time">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Start Time</label>
+        <input type="time" class="form-control" id="start_time">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >End Time</label>
+        <input type="time" class="form-control" id="end_time">
+      </div>
+
+      <div class="mb-3">
+        Status:-<select id="country" name="country">
+            <option value="pending">pending</option>
+            <option value="process">process</option>
+            <option value="Done">Done</option>
+          </select>
+      </div>
+
+            <input type="button" name="log" id="log" value="Log In Here" onclick="callfun()"></a>    
+  </form>
+  </div>
+
+
+
+
+  <div class="table-responsive">
+    <table id="emp"class="table" >
+        <thead>
+<tr>
+            <!-- <th scope="col" style="background-color: #f7941d; color: black;">Id</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Emp Id</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Name</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Age</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Designation</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">Password</th>
+            <th scope="col" style="background-color: #f7941d; color: black;">DOB</th> -->
+
+
+</tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+</table>
+    </div>
+
+
+<script>
+
+
+    </script>
+
+
+</body>    
+</html>     

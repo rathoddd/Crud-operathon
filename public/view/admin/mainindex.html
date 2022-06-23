@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+
+
+        <meta charset="utf-8" />
+        <title>Work Log Book</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Nazox - MVC5 & ASP.Net Core Admin & Dashboard Template, Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesdesign" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets123/images/favicon.ico">
+
+        <!-- jquery.vectormap css -->
+        <link href="assets123/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+
+        <!-- DataTables -->
+        <link href="assets123/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="assets123/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />  
+
+        <!-- Bootstrap Css -->
+        <link href="assets123/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets123/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets123/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta http-equiv="refresh" content="30">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Register - SB Admin</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+          
+
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <style></style>
+    </head>
+
+ 
+
+
+
+    <body  class="sb-nav-fixed" onload="datamy();dropdown();" data-topbar="dark" data-layout="horizontal" data-layout-size="boxed">
+        
+        <!-- <nav class="sb-topnav navbar navbar-expand navbar navbar-dark bg-warning"> -->
+            <!-- Navbar Brand-->
+            <!-- <a href="#" class="logo"> 
+                <img src="../asset/image/log.png " width="130" height="60" style="padding-left: 15px;padding-top: 10px;"></img>
+                </a>   -->
+                <!-- <h6 id="us" style="padding-left: 1190px;">
+                </h6>
+                <i style="font-size:24px" class="fa">&#xf007;</i> -->
+
+<!-- 
+                aria-haspopup="true"
+                class="btn header-item waves-effect" -->
+                
+             
+<!--                 
+                <div class="dropdown d-inline-block user-dropdown" style="padding-left: 1200px;">
+                    
+                    <i style="font-size:24px" class="fa">&#xf007;</i>
+                    <button type="button"  id="page-header-user-dropdown" class="arrow down"
+                        data-bs-toggle="dropdown"  aria-expanded="false" aria-haspopup="true" aria-expanded="false" class=" btn-lg float-right" style="padding: 1px;">
+                         -->
+                             <!-- <h6 id="" style="padding-left: 1190px;">
+                </h6> -->
+                <!-- <span class="d-none d-xl-inline-block ms-1" id="us"></span> -->
+                       
+                        <!-- <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i> -->
+                    <!-- </button> -->
+            
+                    <!-- <div class="dropdown-menu dropdown-menu-end"> -->
+                        <!-- item-->
+                        <!-- <a class="dropdown-item" href="#"> Profile</a>
+                        <a class="dropdown-item" href="#"> My Wallet</a> -->
+                        <!-- <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end mt-1">11</span><i class="ri-settings-2-line align-middle me-1"></i> Settings</a> -->
+                        <!-- <a class="dropdown-item" href="#"> Lock screen</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#"> Logout</a>
+                    </div>
+                </div> -->
+
+                <!-- <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                        <i class="ri-settings-2-line"></i>
+                    </button>
+                </div> -->
+    
+
+        <!-- </nav> -->
+
+
+
+
+
+
+
+        <div id="layout-wrapper">
+
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <img src="../asset/image/log.png " width="130" height="60" style="padding-right: 20px;"></img>
+
+                    <div class="d-flex">
+
+                        <!-- <img src="../asset/image/log.png " width="130" height="60" style="padding-right: 20px;"></img> -->
+
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="index.html" class="logo logo-dark">
+                                
+                                <span class="logo-sm">
+                                    <!-- <img src="assets123/images/logo-sm-dark.png" alt="logo-sm-dark" height="22"> -->
+                                </span>
+                                <span class="logo-lg">
+                                    <!-- <img src="assets123/images/logo.png" alt="logo-dark" height="20"> -->
+                                </span>
+                            </a>
+
+                            <a href="index.html" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <!-- <img src="assets123/images/logo-sm-light.png" alt="logo-sm-light" height="22"> -->
+                                </span>
+                                <span class="logo-lg">
+                                    <!-- <img src="assets123/images/logo-light.png" alt="logo-light" height="20"> -->
+                                </span>
+                            </a>
+                        </div>
+
+                        <!-- <button type="button" class="btn btn-sm px-3 font-size-24 d-lg-none header-item" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                            <i class="ri-menu-2-line align-middle"></i>
+                        </button> -->
+
+                        <!-- App Search-->
+                        <!-- <form class="app-search d-none d-lg-block">
+                            <div class="position-relative">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="ri-search-line"></span>
+                            </div>
+                        </form> -->
+
+                        <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
+                            <!-- <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                Mega Menu
+                                <i class="mdi mdi-chevron-down"></i> 
+                            </button> -->
+                            <div class="dropdown-menu dropdown-megamenu">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <h5 class="font-size-14">UI Components</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);">Lightbox</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Range Slider</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Sweet Alert</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Rating</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Forms</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Tables</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Charts</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <h5 class="font-size-14">Applications</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);">Ecommerce</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Calendar</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Email</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Projects</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Tasks</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Contacts</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <h5 class="font-size-14">Extra Pages</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);">Light Sidebar</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Compact Sidebar</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Horizontal layout</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Maintenance</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Coming Soon</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Timeline</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">FAQs</a>
+                                                    </li>
+                                        
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h5 class="font-size-14">UI Components</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);">Lightbox</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Range Slider</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Sweetalert 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Rating</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Forms</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Tables</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">Charts</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="col-sm-5">
+                                                <div>
+                                                    <img src="assets123/images/megamenu-img.png" alt="megamenu-img" class="img-fluid mx-auto d-block">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-inline-block d-lg-none ms-2">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-search-line"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                aria-labelledby="page-header-search-dropdown">
+                    
+                                <form class="p-3">
+                                    <div class="mb-3 m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search ...">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit"><i class="ri-search-line"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <!-- <button type="button" class="btn header-item waves-effect"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="" src="assets123/images/flags/us.jpg" alt="Header Language" height="16">
+                            </button> -->
+                            <div class="dropdown-menu dropdown-menu-end">
+                    
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <img src="assets123/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <img src="assets123/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <img src="assets123/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <img src="assets123/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-none d-lg-inline-block ms-1">
+                            <button type="button" class="btn header-item noti-icon waves-effect"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-apps-2-line"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                                <div class="px-lg-2">
+                                    <div class="row g-0">
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="assets123/images/brands/github.png" alt="Github">
+                                                <span>GitHub</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="assets123/images/brands/bitbucket.png" alt="bitbucket">
+                                                <span>Bitbucket</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="assets123/images/brands/dribbble.png" alt="dribbble">
+                                                <span>Dribbble</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-0">
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="assets123/images/brands/dropbox.png" alt="dropbox">
+                                                <span>Dropbox</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="assets123/images/brands/mail_chimp.png" alt="mail_chimp">
+                                                <span>Mail Chimp</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="assets123/images/brands/slack.png" alt="slack">
+                                                <span>Slack</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-none d-lg-inline-block ms-1">
+                            <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                                <i class="ri-fullscreen-line"></i>
+                            </button>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+                                  data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="ri-notification-3-line"></i>
+                                <span class="noti-dot"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                aria-labelledby="page-header-notifications-dropdown">
+                                <div class="p-3">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0"> Notifications </h6>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a href="#!" class="small"> View All</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-simplebar style="max-height: 230px;">
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="d-flex">
+                                            <div class="avatar-xs me-3">
+                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                    <i class="ri-shopping-cart-line"></i>
+                                                </span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h6 class="mb-1">Your order is placed</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">If several languages coalesce the grammar</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="d-flex">
+                                            <img src="assets123/images/users/avatar-3.jpg"
+                                                class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="flex-1">
+                                                <h6 class="mb-1">James Lemire</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">It will seem like simplified English.</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="d-flex">
+                                            <div class="avatar-xs me-3">
+                                                <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                    <i class="ri-checkbox-circle-line"></i>
+                                                </span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h6 class="mb-1">Your item is shipped</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">If several languages coalesce the grammar</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="d-flex">
+                                            <img src="assets123/images/users/avatar-4.jpg"
+                                                class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="flex-1">
+                                                <h6 class="mb-1">Salena Layfield</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="p-2 border-top">
+                                    <div class="d-grid">
+                                        <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                            <i class="mdi mdi-arrow-right-circle me-1"></i> View More..
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="dropdown d-inline-block user-dropdown">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="assets123/images/users/avatar-2.jpg"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1" id="us"></span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <a class="dropdown-item" href="../admin/mainlogin.html"><i class="ri-user-line align-middle me-1"></i>Project Add</a>
+                                <a class="dropdown-item" href="../admin/login.html"><i class="ri-wallet-2-line align-middle me-1"></i>New Account</a>
+                                <!-- <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end mt-1">11</span><i class="ri-settings-2-line align-middle me-1"></i> Settings</a> -->
+                                <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock screen</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="../"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <!-- <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                                <i class="ri-settings-2-line"></i>
+                            </button> -->
+                        </div>
+            
+                    </div>
+                </div>
+            </header>
+
+
+ <div class="dropdown d-inline-block user-dropdown">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-2.jpg"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1" id="us"></span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <a class="dropdown-item" href="../admin/mainlogin.html"><i class="ri-user-line align-middle me-1"></i> Project Add</a>
+                                <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> My Wallet</a>
+                                <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end mt-1">11</span><i class="ri-settings-2-line align-middle me-1"></i> Settings</a>
+                                <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock screen</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="#"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                                <i class="ri-settings-2-line"></i>
+                            </button>
+                        </div>
+            
+
+
+
+        <!-- <div id="layoutSidenav">
+            <div id="layoutSidenav_nav"> -->
+                <!-- <nav class="sb-sidenav accordion sb-sidenav-navbar navbar-dark bg-warning" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                               <h6 style="color: black;"> Dashboard</h6>
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <h6 style="color: black;">Layouts</h6> -->
+                                <!-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div> -->
+                               <!-- <h6 style="color: black;"> Pages</h6> -->
+                                <!-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="projectadd.html">Project Details Add</a>
+                                            <a class="nav-link" href="employee.html">Employee ADD</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <a class="nav-link" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div> -->
+                              <!-- <h6 style="color: black;">Add Project   </h6> -->
+                            <!-- </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                               <h6 style="color: black;"> Tables</h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Start Bootstrap
+                    </div> 
+                </nav> -->
+            <!-- </div> -->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+
+                        
+                        <h1 class="mt-4">Work Log Book</h1>
+                        <!-- <ol class="breadcrumb mb-4"> -->
+                            <!-- <li class="breadcrumb-item active">Dashboard</li> -->
+                            <form>
+                                <div class="form-row">
+
+                                   
+                                    <div class="col-0">
+                                        <input type="text" autocomplete="off" list="cars" id ="name" placeholder="Project Name" style="width: 125px; height: 30px;">
+                                            <datalist  id="cars">
+                                            </datalist >
+                          
+                                </div>
+
+                                  <div class="col-0">
+                                        <input class="form-control" id="lname"  autocomplete="off"  type="text" placeholder="Description" style="width: 350px; height: 30px;"/>
+                                </div>
+                                <!-- <div class="col-0">
+                                    <input type="text" id="customerName" class="form-control" placeholder="customerName" style="width: 120px; height: 30px;">
+                                  </div>
+                                  <div class="col-0">
+                                    <input type="text" id="employeeName" class="form-control" placeholder="employeeName" style="width: 120px; height: 30px;">
+                                  </div> -->
+                                  <div class="col-0">
+                                    <input type="date" id="date"  class="form-control" style="width: 120px; height: 30px;">
+                                  </div>
+                                  <div class="col-0">
+                                    <input type="number" id="time" class="form-control" placeholder="Time" style="width: 100px; height: 30px;">
+                                  </div>
+
+
+                                  <div class="col-0">
+                                     <select id="country" name="country" style="width: 80px; height: 30px;">
+                                        <option value="">Status</option>
+                                         <option value="pending">pending</option>
+                                         <option value="process">process</option>
+                                         <option value="Done">Done</option>
+                                       </select>
+
+                                 </div>
+                                  <div class="d-grid"><a class="btn btn-primary btn-block" onclick="callfun()" style="height: 30px;">Submit</a></div>
+                                </div>
+                                </div>
+                              </form>
+
+                        </ol>    
+                       
+
+
+
+                            <!-- <div id="layoutAuthentication">
+                                <div id="layoutAuthentication_content">
+                                    <main>
+                                        <div class="container">
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-7">
+                                                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                                        <div class="card-header"><h3 class="text-center font-weight-light my-4">Add Task</h3></div>
+                                                        <div class="body">
+                                                            <form>
+                                                                <div class="row mb-3">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-floating">
+                                                                            
+                                                                            <input type="text"  name="example" list="exampleList">
+                                                                            <datalist id="exampleList">
+                                                                              <option  id ="cars">  </option>
+                                                                              
+                                                                            </datalist>                                                                       
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-floating">
+                                                                            <input class="form-control" id="date" type="date"  />
+                                                                            <label for="inputLastName">Date</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-floating mb-3">
+                                                                    <input class="form-control" id="lname" type="text"/>
+                                                                    <label for="inputEmail">Description</label>
+                                                                </div>
+                                                                <div class="row mb-3">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-floating mb-3 mb-md-0">
+                                                                            <input class="form-control" id="time" type="time" placeholder="Create a password" />
+                                                                            <label for="inputPassword">Time</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-floating mb-3 mb-md-0">
+
+                                                                           Status: <select id="country" name="country">
+                                                                                <option value="pending">pending</option>
+                                                                                <option value="process">process</option>
+                                                                                <option value="Done">Done</option>
+                                                                              </select>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mt-4 mb-0">
+                                                                    <div class="d-grid"><a class="btn btn-primary btn-block" onclick="callfun()">Submit</a></div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </main>
+                                </div> -->
+        
+                            <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+                            <script src="js/scripts.js"></script>
+     -->
+     <br><br>
+                            <div class="body">
+                                <table id="customertable" class="table">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th scope="col" style="background-color: #f7941d; color: black;">Project Name</th>
+                                            <th scope="col" style="background-color: #f7941d; color: black;">Description</th>
+                                            <th scope="col" style="background-color: #f7941d; color: black;">Date</th>
+                                            <th scope="col" style="background-color: #f7941d; color: black;">Time</th>
+                                            <th scope="col" style="background-color: #f7941d; color: black;">Status</th>
+                                            <!-- <th scope="col" style="background-color: #f7941d; color: black;">customerName</th>
+                                            <th scope="col" style="background-color: #f7941d; color: black;">employeeName</th>
+ -->
+
+                                        </tr>
+                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <!-- <div class="text-muted">Copyright &copy; Your Website 2021</div> -->
+                            <div>
+                                <!-- <a href="#">Privacy Policy</a> -->
+                                &middot;
+                                <!-- <a href="#">Terms &amp; Conditions</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+
+
+
+
+
+
+        <script>
+            // show customer data
+             function datamy() {
+             
+                 fetch("http://localhost:8090/showdetail")
+             .then((response)=>  {
+              // console.log(response);
+                response.json().then(result   =>  { 
+                //return response.result.body;
+                console.log(result.data);
+                var data = result.data ;
+             for (let i=0;i<data.length;i++){
+             // console.log(" project name:-"+ data[i].name);
+             // console.log(" customer lname:-"+ data[i].lname);
+             // console.log(" date:-"+ data[i].date);
+             // console.log("time:-"+ data[i].time);
+             // console.log("status:-"+ data[i].status);
+             
+             
+             var row = $('<tr><td>' + data[i].name+ '</td><td>'
+                 
+                  + data[i].lname + '</td><td>' + data[i].date +
+                      '</td><td>' + data[i].time + '</td><td>' + data[i].status + '</td></tr>');
+                                 $("#customertable").append(row);
+                                 // $("#cars").append(row);
+     
+             
+             } 
+             });
+             })  
+             }
+             
+             </script>
+     
+
+     <script>
+        // show customer data
+         function dropdown() {
+             fetch("http://localhost:8090/showdropdown")
+         .then((response)=>  {
+            response.json().then(result   =>  { 
+            console.log(result.data);
+            var data = result.data ;
+         for (let i=0;i<data.length;i++){
+        //var row = $('<' + data[i].projectName+ '</td></tr>');
+                //$("#cars").append(data[i].projectName);
+               /// $("#cars").innerHTML = data[i].projectName
+               var x = document.getElementById("cars");
+                var option = document.createElement("option");
+                option.value = data[i].projectName;
+                x.appendChild(option);
+
+         }                   
+         });
+         })  
+         }
+         </script>
+
+<script>
+
+    function callfun(){
+     var cars = document.getElementById("name").value;
+     var lname = document.getElementById("lname").value;
+     var date = document.getElementById("date").value;
+    
+     var time = document.getElementById("time").value;
+   
+     var status = document.getElementById("country").value;
+
+    //  var customerName = document.getElementById("customerName").value;
+    //  var employeeName = document.getElementById("employeeName").value;
+
+
+
+// console.log(typeof(name), lname,typeof(date),typeof(time),typeof(status));
+     var input = {
+        "name" : cars,
+        'lname' : lname,
+        'date' : date,
+        'time' : time ,
+        'status': status,
+        // 'customerName': customerName,
+        // 'employeeName': employeeName
+
+
+     }
+     fetch("/adddetail",{
+         method:"POST",
+         body : JSON.stringify(input),
+         headers:{
+             'Content-Type':'application/json'
+        }
+      })
+    .then(res=>  {
+           var result = res.text();
+           result.then(function(text) {
+             alert(text);
+             console.log(text);
+        })
+    //    console.log(res)
+    // })
+    //   .then(data   => {
+          
+    //    var res = data.text();
+ 
+})
+.catch((error) => {                        
+    console.error('Error:', error);
+});
+// console.log(res);
+
+
+  //  })
+}
+</script>
+
+<script>
+
+// function my() {
+//              fetch("http://localhost:8090/login")
+//          .then((response)=>  {
+//             response.json().then(result   =>  { 
+//             console.log(result.data);
+//             var data = result.data ;
+//             alert(result.data)
+    
+//          });
+//          })  
+//          }
+         
+         </script>
+<script>
+
+// console.log(localStorage.getItem("username"));
+
+document.getElementById("us").innerHTML = localStorage.getItem("username");
+</script>
+    </body>
+</html>

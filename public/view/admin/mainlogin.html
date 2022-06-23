@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+
+
+
+
+
+        <meta charset="utf-8" />
+        <title>Work Log Book</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Nazox - MVC5 & ASP.Net Core Admin & Dashboard Template, Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesdesign" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets123/images/favicon.ico">
+
+        <!-- jquery.vectormap css -->
+        <link href="assets123/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+
+        <!-- DataTables -->
+        <link href="assets123/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="assets123/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />  
+
+        <!-- Bootstrap Css -->
+        <link href="assets123/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets123/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets123/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+        <meta http-equiv="refresh" content="30">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Register - SB Admin</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+          
+
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    
+    </head>
+
+
+
+    <body  class="sb-nav-fixed" data-topbar="dark" data-layout="horizontal" data-layout-size="boxed">
+
+
+
+        <style>
+            .center {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 60px;
+            }
+            </style>
+        <body class="bg-primary">
+    
+    
+            <script>
+    
+                function projdetail(){
+    
+                var proj = document.getElementById("projectName").value;
+                var cust = document.getElementById("customerName").value;
+                var description = document.getElementById("description").value;
+                var startdate = document.getElementById("startdate").value;
+                var deadline = document.getElementById("deadline").value;
+    
+             
+    
+                 var input = {
+                    "projectName":proj,
+                    "customerName":cust,
+                    "description":description,
+                    "startdate" :startdate,
+                    "deadline":deadline
+                   
+                 }
+                 fetch("/projectadd/",{
+                     method :"POST",
+                     body:JSON.stringify(input),
+                     headers :{
+                         'content-type':'application/json'
+                     }
+                    }).then(res=>{
+    
+                        var result= res.text().then(function(text){
+                            alert(text)
+                            console.log(text)
+                        })
+                    })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+        
+        <!-- <nav class="sb-topnav navbar navbar-expand navbar navbar-dark bg-warning"> -->
+            <!-- Navbar Brand-->
+            <!-- <a href="#" class="logo">
+                <img src="../asset/image/log.png " width="130" height="60" style="padding-left: 15px;padding-top: 10px;"></img>
+                </a>
+
+                <h6 id="us" style="padding-left: 1190px;">
+                </h6>
+                <i style="font-size:24px" class="fa">&#xf007;</i> -->
+                
+            <!-- Sidebar Toggle-->
+            <!-- <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button> -->
+            <!-- Navbar Search-->
+            <!-- <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form> -->
+            <!-- Navbar-->
+            <!-- <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul> -->
+        <!-- </nav> -->
+        <!-- <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-navbar navbar-dark bg-warning" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                               <h6 style="color: black;"> Dashboard</h6>
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <h6 style="color: black;">Layouts</h6>
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                               <h6 style="color: black;"> Pages</h6>
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> -->
+                                    <!-- </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <a class="nav-link" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                              <h6 style="color: black;">  Charts </h6>
+                            </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                               <h6 style="color: black;"> Tables</h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Start Bootstrap
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>    
+                       
+ -->
+
+ <div id="layout-wrapper">
+
+    <header id="page-topbar">
+        <div class="navbar-header">
+            <img src="../asset/image/log.png " width="130" height="60" style="padding-right: 20px;"></img>
+
+            <div class="d-flex">
+
+                <!-- <img src="../asset/image/log.png " width="130" height="60" style="padding-right: 20px;"></img> -->
+
+                <!-- LOGO -->
+                <div class="navbar-brand-box">
+                    <a href="index.html" class="logo logo-dark">
+                        
+                        <span class="logo-sm">
+                            <!-- <img src="assets123/images/logo-sm-dark.png" alt="logo-sm-dark" height="22"> -->
+                        </span>
+                        <span class="logo-lg">
+                            <!-- <img src="assets123/images/logo.png" alt="logo-dark" height="20"> -->
+                        </span>
+                    </a>
+
+                    <a href="index.html" class="logo logo-light">
+                        <span class="logo-sm">
+                            <!-- <img src="assets123/images/logo-sm-light.png" alt="logo-sm-light" height="22"> -->
+                        </span>
+                        <span class="logo-lg">
+                            <!-- <img src="assets123/images/logo-light.png" alt="logo-light" height="20"> -->
+                        </span>
+                    </a>
+                </div>
+
+                <!-- <button type="button" class="btn btn-sm px-3 font-size-24 d-lg-none header-item" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                    <i class="ri-menu-2-line align-middle"></i>
+                </button> -->
+
+                <!-- App Search-->
+                <!-- <form class="app-search d-none d-lg-block">
+                    <div class="position-relative">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="ri-search-line"></span>
+                    </div>
+                </form> -->
+
+                <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
+                    <!-- <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        Mega Menu
+                        <i class="mdi mdi-chevron-down"></i> 
+                    </button> -->
+                    <div class="dropdown-menu dropdown-megamenu">
+                        <div class="row">
+                            <div class="col-sm-8">
+        
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h5 class="font-size-14">UI Components</h5>
+                                        <ul class="list-unstyled megamenu-list">
+                                            <li>
+                                                <a href="javascript:void(0);">Lightbox</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Range Slider</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Sweet Alert</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Rating</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Forms</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Tables</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Charts</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <h5 class="font-size-14">Applications</h5>
+                                        <ul class="list-unstyled megamenu-list">
+                                            <li>
+                                                <a href="javascript:void(0);">Ecommerce</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Calendar</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Email</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Projects</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Tasks</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Contacts</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <h5 class="font-size-14">Extra Pages</h5>
+                                        <ul class="list-unstyled megamenu-list">
+                                            <li>
+                                                <a href="javascript:void(0);">Light Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Compact Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Horizontal layout</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Maintenance</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Coming Soon</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Timeline</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">FAQs</a>
+                                            </li>
+                                
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h5 class="font-size-14">UI Components</h5>
+                                        <ul class="list-unstyled megamenu-list">
+                                            <li>
+                                                <a href="javascript:void(0);">Lightbox</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Range Slider</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Sweetalert 2</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Rating</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Forms</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Tables</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Charts</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-sm-5">
+                                        <div>
+                                            <img src="assets123/images/megamenu-img.png" alt="megamenu-img" class="img-fluid mx-auto d-block">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex">
+
+                <div class="dropdown d-inline-block d-lg-none ms-2">
+                    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="ri-search-line"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                        aria-labelledby="page-header-search-dropdown">
+            
+                        <form class="p-3">
+                            <div class="mb-3 m-0">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search ...">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="submit"><i class="ri-search-line"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <!-- <button type="button" class="btn header-item waves-effect"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="" src="assets123/images/flags/us.jpg" alt="Header Language" height="16">
+                    </button> -->
+                    <div class="dropdown-menu dropdown-menu-end">
+            
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <img src="assets123/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <img src="assets123/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <img src="assets123/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <img src="assets123/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="dropdown d-none d-lg-inline-block ms-1">
+                    <button type="button" class="btn header-item noti-icon waves-effect"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="ri-apps-2-line"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                        <div class="px-lg-2">
+                            <div class="row g-0">
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="assets123/images/brands/github.png" alt="Github">
+                                        <span>GitHub</span>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="assets123/images/brands/bitbucket.png" alt="bitbucket">
+                                        <span>Bitbucket</span>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="assets123/images/brands/dribbble.png" alt="dribbble">
+                                        <span>Dribbble</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0">
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="assets123/images/brands/dropbox.png" alt="dropbox">
+                                        <span>Dropbox</span>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="assets123/images/brands/mail_chimp.png" alt="mail_chimp">
+                                        <span>Mail Chimp</span>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="assets123/images/brands/slack.png" alt="slack">
+                                        <span>Slack</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown d-none d-lg-inline-block ms-1">
+                    <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                        <i class="ri-fullscreen-line"></i>
+                    </button>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="ri-notification-3-line"></i>
+                        <span class="noti-dot"></span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                        aria-labelledby="page-header-notifications-dropdown">
+                        <div class="p-3">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="m-0"> Notifications </h6>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#!" class="small"> View All</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-simplebar style="max-height: 230px;">
+                            <a href="#" class="text-reset notification-item">
+                                <div class="d-flex">
+                                    <div class="avatar-xs me-3">
+                                        <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                            <i class="ri-shopping-cart-line"></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h6 class="mb-1">Your order is placed</h6>
+                                        <div class="font-size-12 text-muted">
+                                            <p class="mb-1">If several languages coalesce the grammar</p>
+                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="text-reset notification-item">
+                                <div class="d-flex">
+                                    <img src="assets123/images/users/avatar-3.jpg"
+                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                    <div class="flex-1">
+                                        <h6 class="mb-1">James Lemire</h6>
+                                        <div class="font-size-12 text-muted">
+                                            <p class="mb-1">It will seem like simplified English.</p>
+                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="text-reset notification-item">
+                                <div class="d-flex">
+                                    <div class="avatar-xs me-3">
+                                        <span class="avatar-title bg-success rounded-circle font-size-16">
+                                            <i class="ri-checkbox-circle-line"></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h6 class="mb-1">Your item is shipped</h6>
+                                        <div class="font-size-12 text-muted">
+                                            <p class="mb-1">If several languages coalesce the grammar</p>
+                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="text-reset notification-item">
+                                <div class="d-flex">
+                                    <img src="assets123/images/users/avatar-4.jpg"
+                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                    <div class="flex-1">
+                                        <h6 class="mb-1">Salena Layfield</h6>
+                                        <div class="font-size-12 text-muted">
+                                            <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
+                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="p-2 border-top">
+                            <div class="d-grid">
+                                <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                    <i class="mdi mdi-arrow-right-circle me-1"></i> View More..
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="dropdown d-inline-block user-dropdown">
+                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle header-profile-user" src="assets123/images/users/avatar-2.jpg"
+                            alt="Header Avatar">
+                        <span class="d-none d-xl-inline-block ms-1" id="us"></span>
+                        <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a class="dropdown-item" href="../admin/mainlogin.html"><i class="ri-user-line align-middle me-1"></i> Profile</a>
+                        <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> My Wallet</a>
+                        <!-- <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end mt-1">11</span><i class="ri-settings-2-line align-middle me-1"></i> Settings</a> -->
+                        <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock screen</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="../index.html"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <!-- <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                        <i class="ri-settings-2-line"></i>
+                    </button> -->
+                </div>
+    
+            </div>
+        </div>
+    </header>
+
+
+<div class="dropdown d-inline-block user-dropdown">
+                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-2.jpg"
+                            alt="Header Avatar">
+                        <span class="d-none d-xl-inline-block ms-1">Kevin</span>
+                        <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a class="dropdown-item" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
+                        <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i>New Account</a>
+                        <!-- <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end mt-1">11</span><i class="ri-settings-2-line align-middle me-1"></i> Settings</a> -->
+                        <!-- <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock screen</a> -->
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="../index.html"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                        <i class="ri-settings-2-line"></i>
+                    </button>
+                </div>
+    
+
+
+                        <div id="layoutAuthentication">
+                            <div id="layoutAuthentication_content">
+                                <main>
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-7">
+                                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Project Details</h3></div>
+                                                    <div class="card-body">
+                                                        <form>
+                                                            <div class="row mb-3">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-floating mb-3 mb-md-0">
+                                                                        <input class="form-control" id="projectName"  autocomplete="off" type="text" />
+                                                                        <label for="inputFirstName"><b>Project Name</b></label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-floating">
+                                                                        <input class="form-control" id="customerName"  autocomplete="off" type="text"  />
+                                                                        <label for="inputLastName"><b>Customer Name</b></label>
+                                                                    </div>
+                                                                </div>
+                                                                <br><br><br>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-floating">
+                                                                        <input class="form-control" id="description" autocomplete="off" type="text"/>
+                                                                        <label for="inputLastName"><b>description</b></label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-floating">
+                                                                        <input class="form-control" id="startdate" type="date"/>
+                                                                        <label for="inputLastName"><b >Project Start Date</b></label>
+                                                                    </div>
+                                                                </div>
+                                                                <br><br><br>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-floating">
+                                                                        <input class="form-control" id="deadline" type="date"/>
+                                                                        <label for="inputLastName"><b> Deadline</b></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- <div class="form-floating mb-3">
+                                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                                                <label for="inputEmail">Email address</label>
+                                                            </div> -->
+                                                            <!-- <div class="row mb-3">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-floating mb-3 mb-md-0">
+                                                                        <input class="form-control" id="custid" type="text" placeholder="Customer ID" />
+                                                                        <label for="inputPassword">Customer ID</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-floating mb-3 mb-md-0">
+                                                                        <input class="form-control" id="Projid" type="text" placeholder="Project ID" />
+                                                                        <label for="inputPasswordConfirm">Project ID</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div> -->
+                
+                                                            <div class="mt-4 mb-0">
+                                                               
+                                                                <div class="center"><button class="btn btn-primary btn-block" onclick="projdetail()" style="width: 80px; height: 40px;">Submit</button></div>
+                                                          </div> 
+                
+                                                        </form>
+                                                    </div>
+                                                    <div class="card-footer text-center py-3">
+                                                        <div class="small"><a href="login.html"><b><h5>Create New Account</h5></b></a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </main>
+                            </div>
+                           
+                        </div>
+                </main>
+              
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+
+    <script>
+
+        // console.log(localStorage.getItem("username"));
+        
+        document.getElementById("us").innerHTML = localStorage.getItem("username");
+        </script>
+    </body>
+</html>
