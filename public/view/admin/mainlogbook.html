@@ -47,7 +47,7 @@ th{
     column-gap: 100px;
 }
     </style>
-    <body data-topbar="dark" data-layout="horizontal" onload="datamy();dropdown();projectlist()">
+    <body data-topbar="dark" data-layout="horizontal" onload="dropdown();projectlist()">
 
         <!-- Begin page -->
         <div id="layout-wrapper">
@@ -344,7 +344,7 @@ th{
                             <!-- <div class="col-12"> -->
                                 <div class="card">
                                     <div class="card-body"> 
-                                  <div class="row">
+                                  <div class="row"><form id="myForm">
                                         <div class="col-sm-1 col-mg-1"id="date1" >
                                              <input class="form-control" type="date" placeholder="date" id="date">
 
@@ -374,7 +374,7 @@ th{
                                         <div class="col-sm-1 col-mg-1" id="submit1">
                                             <button class="form-control" type="button" id="example-text-input" onclick="callfun();reloadPage();">Submit</button>
                                         </div>
-                                    </div>
+                                    </form></div>
                                 </div>
                               </div> 
                             <!-- </div> -->
@@ -519,7 +519,7 @@ th{
 
         <script>
       async function datamy() {
-    const response = await fetch("https://worklog.tech/showdetail",{
+    const response = await fetch("http://localhost:8090/showdetail",{
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json'
@@ -537,32 +537,18 @@ th{
                                  $("#customertable").append(row);
    } 
 });
+
 }
-        
-            // show customer data
-            //  function datamy() {
-            //      fetch("https://worklog.tech/showdetail")
-            //  .then((response)=>  {
-            //     response.json().then(result   =>  { 
-               
-            //     var data = result.data ;
-            //  for (let i=0;i<data.length;i++){
-            //  var row = $('<tr><td>' + data[i].date + '</td><td>'
-            //       + data[i].projectCode + '</td><td>' + data[i].Description +
-            //           '</td><td>' + data[i].time + '</td><td>' + data[i].status + '</td></tr>');
-            //                      $("#customertable").append(row);
-            //                      // $("#cars").append(row);
-            //  } 
-            //  });
-            //  })  
-            //  }
-             
+  datamy()      
+           
              </script>
 
 <script>
     function reloadPage()
       {
       window.location.reload()
+      return true;
+
     //   alert("data save successfully")
       }
     </script>
@@ -593,31 +579,18 @@ th{
 
     function callfun(){
         var date = document.getElementById("date").value;
-
      var cars = document.getElementById("projectCode").value;
      var Description = document.getElementById("Description").value;
-    
      var time = document.getElementById("time").value;
-   
      var status = document.getElementById("country").value;
-
-    //  var customerName = document.getElementById("customerName").value;
       var employeeName= localStorage.getItem("username");
-
-
-
- console.log(name, Description,date,time,status, cars);
      var input = {
         'date' : date,
-
         "projectCode" : cars,
         'Description' : Description,
         'time' : time ,
         'status': status,
-        // 'customerName': customerName,
          'employeeName': employeeName
-
-
      }
      fetch("/adddetail",{
          method:"POST",
@@ -632,20 +605,10 @@ th{
              alert(text);
              console.log(text);
         })
-    //    console.log(res)
-    // })
-    //   .then(data   => {
-          
-    //    var res = data.text();
- 
 })
 .catch((error) => {                        
     console.error('Error:', error);
 });
-// console.log(res);
-
-
-  //  })
 }
 </script>
 
@@ -674,7 +637,6 @@ th{
 
 document.getElementById("us").innerHTML = localStorage.getItem("username");
 </script>
-
     </body>
 
 <!-- Mirrored from themesdesign.in/nazox-mvc/layouts/layouts-horizontal.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Jan 2022 09:41:24 GMT -->

@@ -4,7 +4,6 @@ const path = require('path');
 const hbs = require('hbs');
 var cors = require('cors');
 app.use(cors())
-
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, HTTP, ,HTTPS ,PATCH, DELETE');
@@ -12,8 +11,6 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
-
-
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,7 +18,6 @@ const { query } = require("express");
 const mysql = require("mysql2");
 const res = require("express/lib/response");
 const con = mysql.createConnection({
-    
       // host: "localhost",
       // user: "workevnf_worklog",
       // password: "Em0EJOg-)XS5",
@@ -37,8 +33,7 @@ const con = mysql.createConnection({
     con.connect(function(err,connect) {
         if (err) throw err;
         else if(connect){
-          console.log("Connected!");
-      
+          console.log("Connected!"); 
         }
         else{
           console.log("something wrong");
@@ -50,28 +45,18 @@ const con = mysql.createConnection({
        // });
       });
 // Create server
-
 const port = process.env.port || 8090;
-
 app.use(express.static('./public/view/'));
-
 app.set('views', path.join('./public/view/'))
 app.set('view engine', "hbs");
-
-// app.set("view engine:","hbs");
-// app.set("view:","./view")
-
 //routing
 app.get("/", async (req,res)=> {
     res.render("index");
- 
-
 });
 // get data mysql db and bind html form (worklog detail)
 app.post('/showdetail', function(req, res, next) {
   var username = req.body.employee_id;
   var sql =`SELECT * FROM worklog WHERE employeeName ='${username}'ORDER BY id DESC`
-
 //   var sql =`SELECT * FROM worklog WHERE employeeName ='${username}'`
 //   var sql='SELECT * FROM `worklog` ORDER BY id DESC; ';
   con.query(sql, function (err, results) {
@@ -82,7 +67,6 @@ app.post('/showdetail', function(req, res, next) {
   // console.log(results);
 });
 });
-
 app.get('/showdropdown', function(req, res, next) {
   var sql='SELECT * FROM project';
   con.query(sql, function (err, results) {
@@ -93,7 +77,6 @@ app.get('/showdropdown', function(req, res, next) {
   // console.log(results);
 });
 });
-
 app.get('/projectList', function(req, res, next) {
   var sql='SELECT * FROM project';
   con.query(sql, function (err, results) {
@@ -104,10 +87,7 @@ app.get('/projectList', function(req, res, next) {
   // console.log(results);
 });
 });
-
-
 app.get('/showlist', function(req, res, next) {
-
   var sql='SELECT count(*) as projectcount  FROM project';
   con.query(sql, function (err, results) {
   if (err) throw err;
@@ -126,10 +106,7 @@ app.post('/remainder', function(req, res, next) {
   })
 });
 });
-
-
 app.post('/sumtime', function(req, res, next) {
-
   var username = req.body.employee_id;
   var sql =`SELECT SUM(time) FROM worklog WHERE employeeName ='${username}'`
   // var sql='SELECT SUM(time) FROM worklog; ';
@@ -151,11 +128,6 @@ app.get('/showempdetail', function(req, res, next) {
   // console.log(results);
 });
 });
-
-
-
-
-
 // send data login form to mysql db
 app.post("/adddetail",(req,res)=>{
  if(!req.body.projectCode)
@@ -186,13 +158,11 @@ app.post("/adddetail",(req,res)=>{
                 else{
   
     var name = req.body.projectCode;
-    console.log("name", name);
     var Description = req.body.Description;
     var date = req.body.date;
     var time = req.body.time;
     var status = req.body.status;
-    // var customerName = req.body.customerName;
-     var employeeName = req.body.employeeName;
+    var employeeName = req.body.employeeName;
 
 var d = new Date();
 
@@ -217,7 +187,7 @@ let newdate = year + "/" + month + "/" + day;
       // console.log(result.affectedRows);
       if(result.affectedRows == 1)
       {
-        console.log("Done");
+        console.log("Done1");
           res.send('Data added successfully!');
       }
      //res.redirect('/');
@@ -264,23 +234,20 @@ let newdate = year + "/" + month + "/" + day;
     var password = req.body.password;
     var employeeName = req.body.employeeName;
     var employeeRoll = req.body.employeeRoll;
-
     var sql = `INSERT INTO employee (employee_id,password,employeeName,employeeRoll) VALUES ("${username}", "${password}","${employeeName}","${employeeRoll}")`;
     con.query(sql, function(err, result) {
       if (err) throw err;
       console.log('record inserted');
-      // console.log(result.affectedRows);
       if(result.affectedRows == 1)
       {
         console.log("Done");
           res.send('Data added successfully!');
-      }
-     //res.redirect('/');
-    
+      } 
     });
   })
 
 
+  
 
 
   app.post('/add/',(req,res)=>{
@@ -337,7 +304,6 @@ let newdate = year + "/" + month + "/" + day;
           console.log(results.length);
            if(results.length == 0)
            {
-             console.log("Invaild Data.");
              response.send("Username and Password is incorrect.");
            }
            else
@@ -406,7 +372,6 @@ app.post('/userchange',(req,res)=>{
   var employeeRoll = req.body.employeeRoll;
   console.log(emp_Id,employee_id,password, employeeName,employeeRoll );
   var sql =  `UPDATE employee SET password ="${password}",employeeName ="${employeeName}",employeeRoll="${employeeRoll}",employee_id ="${employee_id}" WHERE emp_Id = ${emp_Id};`;
- 
  console.log(sql);
  con.query(sql, function(err, result) {
     if (err) throw err;
@@ -418,6 +383,24 @@ app.post('/userchange',(req,res)=>{
     }
   });
 })
+app.post('/prjchange',(req,res)=>{
+  var id = req.body.id;
+  var projectCode = req.body.projectCode;
+  var projectName = req.body.projectName;
+  var customerName = req.body.customerName;
+  var customerID = req.body.customerID;
+  var description = req.body.description;
+  var sql =  `UPDATE project SET projectCode ="${projectCode}",projectName ="${projectName}",customerName="${customerName}",customerID ="${customerID}",description ="${description}" WHERE id = ${id};`;
+ console.log(sql);
+ con.query(sql, function(err, result) {
+    if (err) throw err;
+    console.log("err",err); 
+     console.log("Done",result);
+        res.send('Data update successfully!');
+    
+  });
+})
+
 
 
 app.get('/showlistproj', function(req, res, next) {
@@ -432,10 +415,80 @@ app.get('/showlistproj', function(req, res, next) {
 });
 
 
+
+
+app.post('/leaveapi',(req,res)=>{
+  var name = req.body.name;
+  var date = req.body.date;
+  var reason = req.body.reason;
+  var employeename = req.body.employeename;
+  var sql = `INSERT INTO empleave (name,date,reason,employeename) VALUES("${name}","${date}","${reason}","${employeename}")`;
+  con.query(sql, function(err,result){
+    if (err) throw err;
+    if(result.affectedRows == 1){
+      res.json("Data added successfully!")
+    }
+  })
+})
+
+
+app.get('/leavedetail', function(req, res, next) {
+  var sql='SELECT * FROM empleave';
+  con.query(sql, function (err, results) {
+  if (err) throw err;
+  res.json({
+    data : results
+  })
+});
+});
+
+
+app.post('/showleave', function(req, res, next) {
+  var employeename = req.body.employeename;
+  var sql =`SELECT * FROM empleave WHERE employeename ='${employeename}'ORDER BY id DESC LIMIT 1`
+  con.query(sql, function (err, results) {
+  if (err) throw err;
+  res.json({
+    data : results
+  })
+  // console.log(results);
+});
+});
+
+
+// app.post('/leaveres',(req,res)=>{
+//   var response = req.body.status
+//   var sql = `INSERT INTO empleave (status) VALUES ("${response}")`;
+//   con.query(sql,function(err,result){
+//     if(err) throw err;
+//     res.json("Respond send successfully")
+//   })
+// })
+
+
+app.post('/leaveapprove',(req,res)=>{
+  var reply = req.body.reply;
+  var empname = req.body.employeename;
+  try{
+  var sql =  `UPDATE empleave SET reply ="${reply}" WHERE employeename = "${empname}"`;
+ con.query(sql, function(err, result) {
+    if (err) throw err;
+    if(result.affectedRows == 2)
+    {   
+
+      console.log(result) 
+        res.send('Data added successfully!');
+    }
+  });
+}catch(e){
+  console.log("error",e)
+}
+})
+
+
 // toska api
 
-app.post("/tokenrecord",async (req,res)=>{
-    
+app.post("/tokenrecord",async (req,res)=>{   
 //      if(!req.body.phonenumber)
 //   {
 //       res.json({massage:'number is missing '});
@@ -450,13 +503,11 @@ app.post("/tokenrecord",async (req,res)=>{
   con.query(sql, function(err, result) {
      if (err) throw err;
      console.log(' token record inserted');
-     // console.log(result.affectedRows);
      if(result.affectedRows == 1)
      {
        console.log("Done");
          res.json({massage:'Thank You '});
      }
-    //res.redirect('/');
    });  
  });
 

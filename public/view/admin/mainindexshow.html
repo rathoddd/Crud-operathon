@@ -42,7 +42,7 @@
         }
             </style>
 
-    <body data-topbar="dark" data-layout="horizontal" onload="showda();remainder();sumtime();projectlist()">
+    <body data-topbar="dark" data-layout="horizontal" onload="showda();remainder();sumtime();projectlist();leaveload();usrleave();">
 
         <!-- Begin page -->
         <div id="layout-wrapper">
@@ -449,22 +449,135 @@
                                         </div>
                                     </div>
 
-                                </div>
-                                <!-- end row -->
-    
-                             
-                            </div>
-    
-                             
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex-1 overflow-hidden">
+                                                        <p class="text-truncate font-size-14 mb-2">Leave Status</p>
+                                                        <h4 class="mb-0" id="leaveuser"></h4><br>
+                                                        <h4 class="mb-0" id="leaveuserdate"></h4>
+
+                                                    </div>
+                                                    <div class="text-primary ms-auto">
+                                                        <i class="ri-briefcase-4-line font-size-24"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                    
+                                </div>                    
+                            </div>                   
                         </div>
-                        <!-- end row -->
-     
-                        <!-- end row -->
-     
-                        <!-- end row -->
-                    </div>
-                    
+
+                                                <!-- start new card -->
+
+                                                <div class="page" style="padding-left: 1100px; padding-top:-100px;">
+                                                    <button type="button" class="btn btn-primary" onclick="leave()">Apply Leave</button>
+                                                </div>
+
+                        <!-- end new card -->
+
+                        <!-- <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body"> 
+                                        <div class="table-rep-plugin">
+                                                <div class="sticky-table-header" style="height: 48.6px; visibility: hidden; width: auto; top: -1px;"><table id="tech-companies-1-clone" class="table">
+                                                   
+                                                    
+                                                </table>
+                                            </div>
+                                            <table  id="approvetable" class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th id="tech-companies-1-col-0 col-sm-6">Name</th>
+                                                        <th data-priority="1" id="tech-companies-1-col-0 col-sm-6">Date</th>
+                                                        <th data-priority="3" id="tech-companies-1-col-2 col-sm-6" style="width: 554px;">Reason</th>
+                                                        <th data-priority="3" id="tech-companies-1-col-2 col-sm-6" style="width: 554px;">Employee Name</th>
+                                                        <th data-priority="3" id="tech-companies-1-col-2 col-sm-6" style="width: 554px;">Status</th>
+                                    
+                                                    </tr>
+                                                    </thead>
+                                                  
+                                                </table>
+                                            </div></div>
+        
+                                        </div>
+        
+                                    </div>
+                                </div> -->
+                    </div>     
                 </div>
+
+                <!-- new code form -->
+
+                <div class="row" id="leaveform">
+                          
+                    <div class="card" id="employeedetail_card" >
+                       
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-2"></div>
+                                
+                            <div class="col-sm-5"> 
+                          <label>Leave Application</label><br>
+                          <br>
+                            </div>
+                            </div>
+                            
+                           <div class="row">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-1"></div>
+                            <div class="col-sm-6" id ="empform">
+
+                                <input class="form-control" id="name" type="text" autocomplete="off" placeholder="name" />
+                            </div>
+                            </div><br>
+                
+                            <div class="row">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-1"></div>
+                            <div class="col-sm-6" id ="empform">
+
+                                <input class="form-control" id="date" type="date" autocomplete="off" placeholder="date"  />
+                               
+                            </div>
+                            </div><br>
+                            <div class="row" >
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-1"></div>
+                            <div class="col-sm-6" id ="empform">
+
+                                 <input class="form-control" id="reason" type="text" autocomplete="off" placeholder="reason" />
+                               
+                            </div>
+                            </div><br>
+                           
+                            <br>
+                          
+                          
+                            <div class="row">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-2" id="employeedetail_submit">
+                                    <button type="button" value="submit" onclick="leavedata()">Submit</button>
+                                </div>
+         
+                            </div> 
+                            
+                            
+                            <!-- new code add -->
+                            
+                  </div> 
+                </div>
+            </div>
+
+                <!-- end form new -->
+                
                 <!-- End Page-content -->
                
                 <footer class="footer">
@@ -518,6 +631,89 @@
 
             </div> <!-- end slimscroll-menu-->
         </div>
+
+
+
+
+        <script>
+            async function usrleave() {
+          const response = await fetch("http://localhost:8090/showleave",{
+          method: 'POST', 
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              "employeename": localStorage.getItem("username")
+          })
+        });
+         response.json().then(result   =>  { 
+         var results = result.data;
+          for (let i=0;i<results.length;i++){
+
+            document.getElementById("leaveuser").innerHTML=results[i].reply;
+            document.getElementById("leaveuserdate").innerHTML=results[i].date
+            // var row = $('<tr><td>' + results[i].name + '</td><td>'
+            //       + results[i].date + '</td><td>' + results[i].reason +
+            //           '</td><td>' + results[i].employeename + '</td><td>' + results[i].reply + '</td></tr>');
+            //                      $("#approvetable").append(row);
+         } 
+      });
+      
+      }
+                 
+                   </script>
+
+
+
+        <script>
+
+            function leaveload(){
+                document.getElementById("leaveform").style.display="none";
+            }
+
+            function leave(){
+                document.getElementById("leaveform").style.display="inline";
+
+                fetch()
+            }
+
+            function leavedata(){
+        var name = document.getElementById("name").value;
+        var date = document.getElementById("date").value;
+        var reason = document.getElementById("reason").value;
+
+         var input = {
+            "name":name,
+            "date" : date,
+            "reason" : reason,
+            "employeename":localStorage.getItem("username")   
+         }
+         console.log(input);
+         try {
+         fetch("/leaveapi",{
+             method:"POST",
+             body : JSON.stringify(input),
+             headers:{
+                'Content-Type':'application/json'
+            }
+          })
+        .then(res=>  {
+                res.json().then(data =>{
+                    alert("Data added successfully!")
+
+                })
+              
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+catch(e){
+    console.log(e)
+}
+    }
+        </script>
+
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
@@ -562,10 +758,10 @@
                  fetch("/showlist")
              .then((response)=>  {
                 response.json().then(result   =>  { 
-                console.log(result.data);
+                // console.log(result.data);
                 var results = result.data;
             //    console.log(results[0].projectcount)
-               console.count(results[0].projectcount);
+            //    console.count(results[0].projectcount);
                document.getElementById("count").innerHTML=results[0].projectcount
                 
              });
@@ -588,7 +784,7 @@
   })
                 response.json().then(result   =>  { 
                 var results = result.data;
-                console.log("results", results);
+                // console.log("results", results);
                 document.getElementById("time").innerHTML=results[0].time;
              })  
              }
