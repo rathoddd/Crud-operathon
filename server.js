@@ -18,11 +18,7 @@ const { query } = require("express");
 const mysql = require("mysql2");
 const res = require("express/lib/response");
 const con = mysql.createConnection({
-      // host: "localhost",
-      // user: "workevnf_worklog",
-      // password: "Em0EJOg-)XS5",
-      // port:'3306',
-      // database:"workevnf_worklog"
+   
       host: "0.0.0.0",
       user: "root",
       password: "",
